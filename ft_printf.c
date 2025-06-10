@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "ft_printf.h"
 #include "libft.h"
 
@@ -25,6 +26,16 @@ int	ft_printf(const char *str, ...)
 			ft_putchar_fd(*str++, 1);
 			continue;
 		}
+		if (*++str == 'c')
+			ft_putchar_fd(va_arg(value, int), 1);
+		else if (*str == 's')
+			ft_putstr_fd(va_arg(value, char*), 1);
+		else if (*str == 'i' || *str == 'd')
+			ft_putnbr_fd(va_arg(value, int), 1);
+		else if (*str == '%')
+			ft_putchar_fd('%', 1);
+		else if (*str == 'u')
+			ft_putnbr_u(va_arg(value, unsigned int));
 		++str;
 	}
 	va_end(value);
@@ -33,6 +44,10 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	ft_printf("This is a %test\n");
+	ft_printf("This is a %c (char test) and a %s (string test)\n", '2', "Japes eh viado");
+	ft_printf("I am %i years old\n", 10 + 12);
+	ft_printf("The ultimate answer of life and everything is %d\n", 20 + 10 + 12);
+	ft_printf("Now I want to print a percent sign (%%)\n");
+	ft_printf("Printing unsigned int: %u\nPrinting unsigned int with negative input: %u\n", 234, -1);
 	return 0;
 }
