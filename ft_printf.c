@@ -37,7 +37,9 @@ int	ft_printf(const char *str, ...)
 		else if (*str == 'u')
 			ft_putnbr_u(va_arg(value, unsigned int));
 		else if (*str == 'X')
-			ft_putnbr_hex((unsigned int)va_arg(value, unsigned int));
+			ft_putnbr_hex((unsigned int)va_arg(value, unsigned int), "u");
+		else if (*str == 'x')
+			ft_putnbr_hex((unsigned int)va_arg(value, unsigned int), "l");
 		++str;
 	}
 	va_end(value);
