@@ -28,7 +28,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) ft_printf
 
 re: fclean all
 

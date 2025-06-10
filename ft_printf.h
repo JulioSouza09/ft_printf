@@ -21,5 +21,6 @@ int	ft_printf(const char *, ...);
 
 // utils
 void	ft_putnbr_u(unsigned int nb);
+void	ft_putnbr_hex(unsigned long nb);
 
 #endif

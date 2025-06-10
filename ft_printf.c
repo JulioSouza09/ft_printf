@@ -36,6 +36,8 @@ int	ft_printf(const char *str, ...)
 			ft_putchar_fd('%', 1);
 		else if (*str == 'u')
 			ft_putnbr_u(va_arg(value, unsigned int));
+		else if (*str == 'X')
+			ft_putnbr_hex((unsigned int)va_arg(value, unsigned int));
 		++str;
 	}
 	va_end(value);
@@ -49,5 +51,7 @@ int	main(void)
 	ft_printf("The ultimate answer of life and everything is %d\n", 20 + 10 + 12);
 	ft_printf("Now I want to print a percent sign (%%)\n");
 	ft_printf("Printing unsigned int: %u\nPrinting unsigned int with negative input: %u\n", 234, -1);
+	ft_printf("%X\n", -1);
+	printf("%X\n", -1);
 	return 0;
 }
