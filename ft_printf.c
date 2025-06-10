@@ -13,6 +13,26 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *str, ...)
 {
+	va_list	value;
+
+	va_start(value, str);
+	while (*str)
+	{
+		if (*str != '%')
+		{
+			ft_putchar_fd(*str++, 1);
+			continue;
+		}
+		++str;
+	}
+	va_end(value);
+	return (0);
+}
+
+int	main(void)
+{
+	ft_printf("This is a %test\n");
+	return 0;
 }

@@ -11,26 +11,18 @@
 # **************************************************************************** #
 
 NAME=libftprintf.a
-LIBFT=libft/libft.a
-SRC=
-OBJS=
+SRC=ft_printf.c
+OBJS=$(SRC:.c=.o)
 CC=cc
 CFLAGS=-Wall -Wextra -Werror
 
-all: $(NAME) $(LIBFT)
+all: $(NAME)
 
 $(NAME): $(OBJS) 
 	ar -rcs $@ $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
-
-# Remove this for evaluation
-$(LIBFT):
-	@if [ ! -d libft ]; then \
-		git clone git@github.com:JulioSouza09/libft.git; \
-		rm -rf libft/.git; \
-	fi
+	$(CC) $(CFLAGS) -c $^ -o $@ -I libft
 
 clean:
 	rm -f $(OBJS)
@@ -39,3 +31,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+printf: $(NAME)
+	$(CC) $(CFLAGS) $^ -o ft_printf libft/libft.a
