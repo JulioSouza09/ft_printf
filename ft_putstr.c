@@ -6,7 +6,7 @@ int	ft_putstr(char *str)
 
 	len = 0;
 	if (!str)
-		return (ft_putstr("(null)");
+		return (ft_putstr("(null)"));
 	while (*str)
 		len += ft_putchar(*str++);
 	return (len);

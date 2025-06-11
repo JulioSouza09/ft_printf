@@ -6,7 +6,7 @@
 /*   By: jcesar-s <jcesar-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:38:47 by jcesar-s          #+#    #+#             */
-/*   Updated: 2025/05/24 17:42:34 by jcesar-s         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:00:25 by jcesar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	ft_printf(const char *str, ...)
 			continue;
 		}
 		if (*++str == 'c')
-			printed_chars += ft_putchar_fd(va_arg(value, int), 1);
+			printed_chars += ft_putchar(va_arg(value, int));
 		else if (*str == 's')
-			printed_chars += ft_putstr_fd(va_arg(value, char*), 1);
+			printed_chars += ft_putstr(va_arg(value, char*));
 		else if (*str == 'i' || *str == 'd')
-			printed_chars += ft_putnbr_fd(va_arg(value, int), 1);
+			printed_chars += ft_putnbr(va_arg(value, int));
 		else if (*str == '%')
-			printed_chars += ft_putchar_fd('%', 1);
+			printed_chars += ft_putchar('%');
 		else if (*str == 'u')
 			printed_chars += ft_putnbr_u(va_arg(value, unsigned int));
 		else if (*str == 'p')
@@ -63,8 +63,7 @@ int	main(void)
 	ft_printf("%X\n", -1);
 	printf("%X\n", -1);
 	ft_printf("%x\n", -1);
-	printf("%x\n", -1);
-	int	count = ft_putnbr_u(290384933);
-	printf("The count is %d\n", count);
+	printf("%d\n", ft_printf("%p\n", ptr));
+	printf("%d\n", printf("%p\n", ptr));
 	return 0;
 }

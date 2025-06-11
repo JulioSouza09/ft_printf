@@ -1,17 +1,10 @@
 #include "ft_printf.h"
 
-int	ft_putnbr(int nb)
+int	ft_putnbr_u(unsigned int nb)
 {
 	int	printed_chars;
 
 	printed_chars = 0;
-	if (nb == -2147483648)
-		return (ft_putstr("-2147483648"));
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb *= -1;
-	}
 	if (nb > 9)
 	{
 		printed_chars += ft_putnbr(nb / 10);
