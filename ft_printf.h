@@ -20,7 +20,10 @@
 int	ft_printf(const char *, ...);
 
 // utils
-void	ft_putnbr_u(unsigned int nb);
-void	ft_putnbr_hex(unsigned long nb);
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+int	ft_putnbr_u(unsigned int nb);
+void	ft_putnbr_hex(unsigned long nb, int case_option);
+void	ft_putptr(unsigned long nb, int print_prefix);
 
 #endif

@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME=libftprintf.a
-SRC=ft_printf.c ft_printf_utils.c
+SRC=ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putnbr_hex.c ft_putnbr_u.c ft_putptr.c
 OBJS=$(SRC:.c=.o)
 CC=cc
 CFLAGS=-Wall -Wextra -Werror
@@ -32,5 +32,5 @@ fclean: clean
 
 re: fclean all
 
-printf: $(NAME)
-	$(CC) $(CFLAGS) $^ -o ft_printf libft/libft.a
+printf: $(OBJS)
+	$(CC) $(CFLAGS) $(SRC) -o ft_printf libft/libft.a -I libft -g
