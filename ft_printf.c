@@ -6,13 +6,11 @@
 /*   By: jcesar-s <jcesar-s@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:38:47 by jcesar-s          #+#    #+#             */
-/*   Updated: 2025/06/12 15:18:12 by jcesar-s         ###   ########.fr       */
+/*   Updated: 2025/06/13 11:22:29 by jcesar-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
-#include "libft.h"
 
 static int	ft_putconv(int stamp, va_list format)
 {

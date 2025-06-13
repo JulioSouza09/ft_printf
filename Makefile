@@ -6,12 +6,11 @@
 #    By: jcesar-s <jcesar-s@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/24 15:40:37 by jcesar-s          #+#    #+#              #
-#    Updated: 2025/06/12 12:22:43 by jcesar-s         ###   ########.fr        #
+#    Updated: 2025/06/13 11:24:08 by jcesar-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libftprintf.a
-LIBFT=libft/libft.a
 SRC=ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putnbr_hex.c ft_putnbr_u.c ft_putptr.c
 OBJS=$(SRC:.c=.o)
 CC=cc
@@ -19,22 +18,16 @@ CFLAGS=-Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS)
 	ar -rcs $@ $(OBJS)
 
-$(LIBFT):
-	$(MAKE) -C libft
-
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@ -I libft
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME) ft_printf
+	rm -f $(NAME)
 
 re: fclean all
-
-printf: $(OBJS)
-	$(CC) $(CFLAGS) $(SRC) -o ft_printf libft/libft.a -I libft -g
